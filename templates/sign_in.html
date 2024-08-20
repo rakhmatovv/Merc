@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Войти</title>
+  <link rel="stylesheet" href="{% static './sign/login.css' %}" />
+  <link rel="websise icon" type="webp" href="{% static 'img/room/logokia.webp' %}">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet" />
+</head>
+
+
+<body><br>
+  <div class="login-box">
+    <h1>Войти</h1>
+    <form method="POST">
+      {% csrf_token %}
+      {% for field in form %}
+      <label>{{field.label}}</label>
+      {{field}}
+      {% endfor %}
+      <br>
+      <button class="but-input">Отправить</button>
+      <button class="but-input"> <a class="a" href="{% url 'home' %}"> Отмена</a></button>
+
+      <p class="para-2">
+        Еще не регистрировались? <a href="{% url 'sign_up' %}">Зарегистрируйтесь, если у вас нет учетной записи</a>
+      </p>
+  </div>
+  </form>
+</body>
+
+</html>
